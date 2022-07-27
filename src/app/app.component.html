@@ -1,1 +1,4 @@
-<app-my-component></app-my-component>
+<h2>pass value from child(child comp.) to parent(app comp.) is {{ title }}</h2>
+
+<app-child [item]="data" (updateData)="updateData($event)"></app-child>
+<button (click)="onclick()">update value</button>

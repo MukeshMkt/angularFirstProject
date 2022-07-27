@@ -1,0 +1,3 @@
+<h2>pass value from parent(app comp.) to child(child comp.) is {{ item }}</h2>
+<input type="text" #box />
+<button (click)="updateData.emit(box.value)">child button</button>

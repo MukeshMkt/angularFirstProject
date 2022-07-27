@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'myNewProject';
+  title = 'Mukesh Kr Thakur';
+  data = 20;
+  onclick() {
+    this.data = 30;
+  }
+  updateData(item: string) {
+    this.title = item;
+  }
 }

@@ -1,10 +1,14 @@
-<h2>pass value from child(child comp.) to parent(app comp.) is {{ title }}</h2>
+<label>First Value</label>
+<input type="number" name="data1" [(ngModel)]="data1" />
+<br />
+<br />
+<br />
+<label>Second Value</label>
+<input type="number" name="data2" [(ngModel)]="data2" />
+<h2>pass value from child(child comp.) to parent(app comp.) is {{ data }}</h2>
 
-<app-child [item]="data" (updateData)="updateData($event)"></app-child>
-<br />
-<br />
-<br />
-
-<button (click)="onclick()">
-  update value(pass data from parent to child)
-</button>
+<app-child
+  [data2]="data2"
+  [data1]="data1"
+  (updateData)="updateData($event)"
+></app-child>

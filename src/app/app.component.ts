@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Mukesh Kr Thakur';
-  data = 20;
-  onclick() {
-    this.data = 30;
-  }
-  updateData(item: string) {
-    this.title = item;
+  data!: number;
+  data1!: number;
+  data2!: number;
+
+  updateData(item: number) {
+    this.data = item;
   }
 }

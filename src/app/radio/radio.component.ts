@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RadioComponent implements OnInit {
   constructor() {}
-  readioSelected: string = '';
+  readioSelected: string = 'fruit';
   showcontent: string = '';
   fruitData: { item: string; image: string }[] = [
     {
@@ -45,6 +45,6 @@ export class RadioComponent implements OnInit {
     this.showcontent = this.readioSelected;
   }
   ngOnInit(): void {
-    console.log('readioSelected', this.readioSelected);
+    this.showcontent = this.readioSelected;
   }
 }

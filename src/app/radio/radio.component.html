@@ -26,7 +26,12 @@
 
 <div
   *ngIf="showcontent == 'fruit'"
-  style="display: flex; flex-direction: row; justify-content: space-around"
+  style="
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+  "
 >
   <div *ngFor="let fruit of fruitData; let index = index">
     <img style="width: 100px; height: 100px" src="{{ fruit.image }}" />
@@ -36,7 +41,12 @@
 
 <div
   *ngIf="showcontent == 'vegitable'"
-  style="display: flex; flex-direction: row; justify-content: space-around"
+  style="
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+  "
 >
   <div *ngFor="let vegitable of vegetableData; let index = index">
     <img style="width: 100px; height: 100px" src="{{ vegitable.image }}" />

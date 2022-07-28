@@ -39,9 +39,7 @@
   style="display: flex; flex-direction: row; justify-content: space-around"
 >
   <div *ngFor="let vegitable of vegetableData; let index = index">
-    <img
-      style="width: 100px; height: 100px"
-      src="{{ vegitable.image }}"
-    />vegetable
+    <img style="width: 100px; height: 100px" src="{{ vegitable.image }}" />
+    <div>{{ vegitable.item }}</div>
   </div>
 </div>

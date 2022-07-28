@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { MyComponentComponent } from './my-component/my-component.component';
 import { ChildComponent } from './child/child.component';
 import { FormsModule } from '@angular/forms';
+import { RadioComponent } from './radio/radio.component';
 
 @NgModule({
-  declarations: [AppComponent, MyComponentComponent, ChildComponent],
+  declarations: [AppComponent, MyComponentComponent, ChildComponent, RadioComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

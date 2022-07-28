@@ -1,0 +1,47 @@
+<h2>2nd Task</h2>
+<div>
+  <input
+    type="radio"
+    value="fruit"
+    name="customRadio"
+    [(ngModel)]="readioSelected"
+    (change)="showContent()"
+  />
+  <label>
+    <span>Fruits</span>
+  </label>
+</div>
+<div>
+  <input
+    type="radio"
+    value="vegitable"
+    name="customRadio"
+    [(ngModel)]="readioSelected"
+    (change)="showContent()"
+  />
+  <label>
+    <span>Vegetable</span>
+  </label>
+</div>
+
+<div
+  *ngIf="showcontent == 'fruit'"
+  style="display: flex; flex-direction: row; justify-content: space-around"
+>
+  <div *ngFor="let fruit of fruitData; let index = index">
+    <img style="width: 100px; height: 100px" src="{{ fruit.image }}" />
+    <div>{{ fruit.item }}</div>
+  </div>
+</div>
+
+<div
+  *ngIf="showcontent == 'vegitable'"
+  style="display: flex; flex-direction: row; justify-content: space-around"
+>
+  <div *ngFor="let vegitable of vegetableData; let index = index">
+    <img
+      style="width: 100px; height: 100px"
+      src="{{ vegitable.image }}"
+    />vegetable
+  </div>
+</div>

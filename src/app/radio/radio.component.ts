@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 export class RadioComponent implements OnInit {
   constructor() {}
   readioSelected: string = 'fruit';
-  showcontent: string = '';
   fruitData: { item: string; image: string }[] = [
     {
       item: 'apple',
@@ -41,10 +40,6 @@ export class RadioComponent implements OnInit {
         'https://freepngimg.com/thumb/eggplant/14-eggplant-png-images-download-thumb.png',
     },
   ];
-  showContent() {
-    this.showcontent = this.readioSelected;
-  }
-  ngOnInit(): void {
-    this.showcontent = this.readioSelected;
-  }
+
+  ngOnInit(): void {}
 }

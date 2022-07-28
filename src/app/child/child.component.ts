@@ -13,22 +13,22 @@ export class ChildComponent implements OnInit {
   @Input() value!: string;
   @Output() updateData = new EventEmitter<number>();
   result!: number;
-  add() {
+  add(): number {
     this.result = this.data1 + this.data2;
     this.updateData.emit(this.result);
     return this.result;
   }
-  mul() {
+  multiply(): number {
     this.result = this.data1 * this.data2;
     this.updateData.emit(this.result);
     return this.result;
   }
-  div() {
+  divide(): number {
     this.result = this.data1 / this.data2;
     this.updateData.emit(this.result);
     return this.result;
   }
-  sub() {
+  subtract(): number {
     this.result = this.data1 - this.data2;
     this.updateData.emit(this.result);
     return this.result;
@@ -36,18 +36,19 @@ export class ChildComponent implements OnInit {
   ngOnInit(): void {
     console.log('item', this.item);
   }
-  changed(value: string) {
+  changed(value: string): string {
     if (value == 'add') {
       this.add();
     }
-    if (value == 'sub') {
-      this.sub();
+    if (value == 'subtract') {
+      this.subtract();
     }
-    if (value == 'mul') {
-      this.mul();
+    if (value == 'multiply') {
+      this.multiply();
     }
-    if (value == 'div') {
-      this.div();
+    if (value == 'divide') {
+      this.divide();
     }
+    return (this.value = value);
   }
 }

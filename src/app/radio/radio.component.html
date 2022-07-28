@@ -5,7 +5,6 @@
     value="fruit"
     name="customRadio"
     [(ngModel)]="readioSelected"
-    (change)="showContent()"
   />
   <label>
     <span>Fruits</span>
@@ -17,7 +16,6 @@
     value="vegitable"
     name="customRadio"
     [(ngModel)]="readioSelected"
-    (change)="showContent()"
   />
   <label>
     <span>Vegetable</span>
@@ -25,7 +23,7 @@
 </div>
 
 <div
-  *ngIf="showcontent == 'fruit'"
+  *ngIf="readioSelected == 'fruit'"
   style="
     display: flex;
     flex-direction: row;
@@ -40,7 +38,7 @@
 </div>
 
 <div
-  *ngIf="showcontent == 'vegitable'"
+  *ngIf="readioSelected == 'vegitable'"
   style="
     display: flex;
     flex-direction: row;

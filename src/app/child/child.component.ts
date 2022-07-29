@@ -51,4 +51,19 @@ export class ChildComponent implements OnInit {
     }
     return (this.value = value);
   }
+  onClick(): number {
+    if (
+      (this.data1 < 0 && this.data2 < 0) ||
+      this.data1 < 0 ||
+      this.data2 < 0
+    ) {
+      this.result = this.data1 / this.data2;
+      this.updateData.emit(this.result);
+    }
+    if (this.data1 > 0 && this.data2 > 0) {
+      this.result = this.data1 * this.data2;
+      this.updateData.emit(this.result);
+    }
+    return this.result;
+  }
 }

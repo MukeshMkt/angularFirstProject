@@ -11,7 +11,7 @@ export class AppComponent {
   data1!: number;
   data2!: number;
 
-  updateData(item: number) {
+  updateData(item: number): void {
     this.data = item;
   }
 }

@@ -1,0 +1,85 @@
+<div class="jumbotron">
+  <div class="container">
+    {{ model | json }}
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h3>Template-Driven Form Validation</h3>
+        <form
+          name="form"
+          (ngSubmit)="f.form.valid && onSubmit()"
+          #f="ngForm"
+          novalidate
+        >
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              [(ngModel)]="model.name"
+              #name="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
+              required
+            />
+            <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+              <div *ngIf="name?.errors?.['required']">Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              name="email"
+              [(ngModel)]="model.email"
+              #email="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              required
+            />
+            <div
+              *ngIf="email.touched || (f.submitted && email.invalid)"
+              class="invalid-feedback"
+            >
+              <p *ngIf="email?.errors?.['required']">
+                Email is a required field!
+              </p>
+              <p *ngIf="email?.errors?.['pattern']">
+                This is not a valid Email!!!
+              </p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phoneNo">Phone Number</label>
+            <input
+              type="text"
+              class="form-control"
+              name="phoneNo"
+              [(ngModel)]="model.phoneNo"
+              #phoneNo="ngModel"
+              pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"
+              [ngClass]="{ 'is-invalid': f.submitted && phoneNo.invalid }"
+              required
+            />
+            <div
+              *ngIf="phoneNo.touched || (f.submitted && phoneNo.invalid)"
+              class="invalid-feedback"
+            >
+              <p *ngIf="phoneNo?.errors?.['required']">
+                Phone Number is required!
+              </p>
+              <p
+                *ngIf="!phoneNo?.errors?.['required']&&!!phoneNo?.errors?.['pattern']"
+              >
+                Accept only number .
+              </p>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

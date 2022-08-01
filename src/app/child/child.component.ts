@@ -1,4 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  SimpleChange,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -50,6 +58,14 @@ export class ChildComponent implements OnInit {
       this.divide();
     }
     return (this.value = value);
+  }
+  ngOnChanges(changedValue: SimpleChanges) {
+    if (changedValue['data1']) {
+      this.data1 = changedValue['data1'].currentValue;
+    }
+    if (changedValue['data2']) {
+      this.data2 = changedValue['data2'].currentValue;
+    }
   }
   onClick(): number {
     if (

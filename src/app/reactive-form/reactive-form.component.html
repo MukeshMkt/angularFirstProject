@@ -13,10 +13,7 @@
             class="form-control"
             [ngClass]="{ 'is-invalid': submitted && registerForm.controls?.['name']?.errors }"
           />
-          <div
-            *ngIf="submitted && registerForm.controls?.['name']?.errors"
-            class="invalid-feedback"
-          >
+          <div class="invalid-feedback">
             <div *ngIf="registerForm.controls?.['name']?.errors?.['required']">
               Name is required!.
             </div>
@@ -31,10 +28,7 @@
             class="form-control"
             [ngClass]="{ 'is-invalid': submitted && registerForm.controls?.['email']?.errors }"
           />
-          <div
-            *ngIf="submitted && registerForm.controls?.['email']?.errors"
-            class="invalid-feedback"
-          >
+          <div class="invalid-feedback">
             <div *ngIf="registerForm.controls?.['email']?.errors?.['required']">
               Email is required!.
             </div>
@@ -51,10 +45,7 @@
             class="form-control"
             [ngClass]="{ 'is-invalid': submitted && registerForm.controls?.['phoneNo']?.errors }"
           />
-          <div
-            *ngIf="submitted && registerForm.controls?.['phoneNo']?.errors"
-            class="invalid-feedback"
-          >
+          <div class="invalid-feedback">
             <div
               *ngIf="registerForm.controls?.['phoneNo']?.errors?.['required']"
             >

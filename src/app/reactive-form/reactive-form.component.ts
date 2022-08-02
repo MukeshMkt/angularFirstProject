@@ -43,5 +43,6 @@ export class ReactiveFormComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.registerForm.reset();
+    this.reactiveFormDataFunc.emit('');
   }
 }

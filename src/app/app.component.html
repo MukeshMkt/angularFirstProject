@@ -17,3 +17,8 @@
 <app-radio></app-radio>
 <h2>4th Task (Template Driven Form)</h2>
 <app-template-driven-form></app-template-driven-form>
+<h3>5th Task</h3>
+<p>data from child (reactive form){{ reactiveFormData | json }}</p>
+<app-reactive-form
+  (reactiveFormDataFunc)="reactiveFormDataFunc($event)"
+></app-reactive-form>

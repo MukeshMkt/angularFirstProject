@@ -1,4 +1,4 @@
-<h2>3rd Task</h2>
+<!-- <h2>3rd Task</h2>
 <label>First Value</label>
 <input type="number" name="data1" [(ngModel)]="data1" />
 <br />
@@ -14,8 +14,8 @@
   (updateData)="updateData($event)"
 ></app-child>
 <br />
-<app-radio></app-radio>
-<h2>4th Task (Template Driven Form)</h2>
+<app-radio></app-radio> -->
+<!-- <h2>4th Task (Template Driven Form)</h2>
 <app-template-driven-form></app-template-driven-form>
 <h3>5th Task</h3>
 <div *ngIf="reactiveFormData">
@@ -23,4 +23,36 @@
 </div>
 <app-reactive-form
   (reactiveFormDataFunc)="reactiveFormDataFunc($event)"
+></app-reactive-form> -->
+<h3>5th Task</h3>
+<div *ngIf="reactiveFormData">
+  <p>data from child (reactive form){{ reactiveFormData | json }}</p>
+</div>
+<app-reactive-form
+  (reactiveFormDataFunc)="reactiveFormDataFunc($event)"
 ></app-reactive-form>
+<h1>Angular Router App</h1>
+<div *ngIf="reactiveFormData">
+  <p>data from child (reactive form){{ reactiveFormData | json }}</p>
+</div>
+<nav>
+  <ul>
+    <li>
+      <a
+        routerLink="/template-driven-form"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Template Driven Form Component</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/radio"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Radio Component</a
+      >
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>

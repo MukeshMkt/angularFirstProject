@@ -37,7 +37,6 @@ export class ReactiveFormComponent implements OnInit {
       return;
     }
     this.reactiveFormDataFunc.emit(this.registerForm.value);
-    console.log('jsonData', this.registerForm.value);
   }
 
   onReset() {

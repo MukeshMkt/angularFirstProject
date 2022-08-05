@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./radio.component.scss'],
 })
 export class RadioComponent implements OnInit {
-  data: any = sessionStorage.getItem('loginData');
+  booleanData: boolean = sessionStorage.getItem('loginData') ? true : false;
   constructor(private router: Router) {}
   readioSelected: string = 'fruit';
   fruitData: { item: string; image: string }[] = [
@@ -44,7 +44,7 @@ export class RadioComponent implements OnInit {
 
   ngOnInit(): void {}
   onLogout(): void {
-    this.data = null;
+    this.booleanData = false;
     this.router.navigateByUrl('');
     sessionStorage.clear();
   }

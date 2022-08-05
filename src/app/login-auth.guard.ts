@@ -5,12 +5,14 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginAuthGuard implements CanActivate {
+  constructor(private router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -20,6 +22,6 @@ export class LoginAuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     const data = sessionStorage.getItem('loginData');
-    return data ? true : false;
+    return data ? true : this.router.navigateByUrl('');
   }
 }

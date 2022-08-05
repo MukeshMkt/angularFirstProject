@@ -10,11 +10,7 @@ import { Router } from '@angular/router';
 export class ReactiveFormComponent implements OnInit {
   submitted = false;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private location: Location,
-    private router: Router
-  ) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
   @Output() reactiveFormDataFunc = new EventEmitter<any>();
 
   ngOnInit() {}
@@ -35,7 +31,11 @@ export class ReactiveFormComponent implements OnInit {
       ],
     ],
   });
-  data: any;
+  data: { name: string; email: string; phoneNo: string } = {
+    name: '',
+    email: '',
+    phoneNo: '',
+  };
   onSubmit(): void {
     this.submitted = true;
     if (this.registerForm.invalid) {
@@ -45,8 +45,8 @@ export class ReactiveFormComponent implements OnInit {
       'loginData',
       JSON.stringify(this.registerForm.value)
     );
-    this.data = sessionStorage.getItem('loginData');
-    if (this.data) this.router.navigateByUrl('/radio');
+    if (!!sessionStorage.getItem('loginData'))
+      this.router.navigateByUrl('/radio');
     this.reactiveFormDataFunc.emit(this.registerForm.value);
   }
 

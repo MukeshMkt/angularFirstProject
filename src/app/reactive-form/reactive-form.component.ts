@@ -30,18 +30,27 @@ export class ReactiveFormComponent implements OnInit {
       ],
     ],
   });
-
-  onSubmit() {
+  data: any;
+  onSubmit(): void {
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;
     }
+    sessionStorage.setItem(
+      'loginData',
+      JSON.stringify(this.registerForm.value)
+    );
+    this.data = sessionStorage.getItem('loginData');
     this.reactiveFormDataFunc.emit(this.registerForm.value);
   }
 
-  onReset() {
+  onReset(): void {
     this.submitted = false;
     this.registerForm.reset();
     this.reactiveFormDataFunc.emit('');
+  }
+  onLogout(): void {
+    this.data = null;
+    sessionStorage.clear();
   }
 }

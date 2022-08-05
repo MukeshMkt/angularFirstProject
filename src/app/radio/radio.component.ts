@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import * as images from '../../images';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-radio',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./radio.component.scss'],
 })
 export class RadioComponent implements OnInit {
-  constructor() {}
+  data: any = sessionStorage.getItem('loginData');
+  constructor(private router: Router) {}
   readioSelected: string = 'fruit';
   fruitData: { item: string; image: string }[] = [
     {
@@ -42,4 +43,9 @@ export class RadioComponent implements OnInit {
   ];
 
   ngOnInit(): void {}
+  onLogout(): void {
+    this.data = null;
+    this.router.navigateByUrl('');
+    sessionStorage.clear();
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
@@ -9,7 +10,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ReactiveFormComponent implements OnInit {
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private location: Location,
+    private router: Router
+  ) {}
   @Output() reactiveFormDataFunc = new EventEmitter<any>();
 
   ngOnInit() {}
@@ -41,6 +46,7 @@ export class ReactiveFormComponent implements OnInit {
       JSON.stringify(this.registerForm.value)
     );
     this.data = sessionStorage.getItem('loginData');
+    if (this.data) this.router.navigateByUrl('/radio');
     this.reactiveFormDataFunc.emit(this.registerForm.value);
   }
 
@@ -48,9 +54,5 @@ export class ReactiveFormComponent implements OnInit {
     this.submitted = false;
     this.registerForm.reset();
     this.reactiveFormDataFunc.emit('');
-  }
-  onLogout(): void {
-    this.data = null;
-    sessionStorage.clear();
   }
 }

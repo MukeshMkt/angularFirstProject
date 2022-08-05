@@ -8,6 +8,11 @@ import { LoginAuthGuard } from './login-auth.guard';
 
 const routes: Routes = [
   {
+    path: '',
+    component: ReactiveFormComponent,
+    pathMatch: 'full',
+  },
+  {
     path: 'template-driven-form',
     canActivate: [LoginAuthGuard],
     component: TemplateDrivenFormComponent,
@@ -19,7 +24,11 @@ const routes: Routes = [
     component: RadioComponent,
     pathMatch: 'full',
   },
-  { path: '**', component: PageNotFoundComponent },
+  {
+    path: '**',
+    canActivate: [LoginAuthGuard],
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({

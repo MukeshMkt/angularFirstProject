@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { formInput } from '../../interface/reactiveForm';
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 })
 export class ReactiveFormComponent implements OnInit {
   submitted = false;
-
   constructor(private formBuilder: FormBuilder, private router: Router) {}
   @Output() reactiveFormDataFunc = new EventEmitter<any>();
 
@@ -31,7 +30,7 @@ export class ReactiveFormComponent implements OnInit {
       ],
     ],
   });
-  data: { name: string; email: string; phoneNo: string } = {
+  data: formInput = {
     name: '',
     email: '',
     phoneNo: '',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import * as images from '../../images';
+import { Router } from '@angular/router';
+import { buttonInput } from '../../interface/radio-button';
 
 @Component({
   selector: 'app-radio',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./radio.component.scss'],
 })
 export class RadioComponent implements OnInit {
-  constructor() {}
+  booleanData: boolean = sessionStorage.getItem('loginData') ? true : false;
+  constructor(private router: Router) {}
   readioSelected: string = 'fruit';
-  fruitData: { item: string; image: string }[] = [
+  fruitData: buttonInput[] = [
     {
       item: 'apple',
       image: 'https://freepngimg.com/thumb/apple/9-apple-png-image-thumb.png',
@@ -24,7 +26,7 @@ export class RadioComponent implements OnInit {
       image: 'https://freepngimg.com/thumb/banana/8-banana-png-image-thumb.png',
     },
   ];
-  vegetableData: { item: string; image: string }[] = [
+  vegetableData: buttonInput[] = [
     {
       item: 'potatoes',
       image:
@@ -42,4 +44,9 @@ export class RadioComponent implements OnInit {
   ];
 
   ngOnInit(): void {}
+  onLogout(): void {
+    this.booleanData = false;
+    this.router.navigateByUrl('');
+    sessionStorage.clear();
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { formInput } from '../../interface/reactiveForm';
 
 @Component({
   selector: 'app-template-driven-form',
@@ -6,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-driven-form.component.scss'],
 })
 export class TemplateDrivenFormComponent implements OnInit {
-  constructor() {}
-  model: { name: string; email: string; phoneNo: string } = {
+  model: formInput = {
     name: '',
     email: '',
     phoneNo: '',
   };
 
+  constructor() {}
+  ngOnInit(): void {}
   onSubmit(): void {
     console.log('data', this.model);
   }
-  ngOnInit(): void {}
 }

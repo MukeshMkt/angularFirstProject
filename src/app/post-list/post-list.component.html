@@ -1,0 +1,25 @@
+<div>
+  <div *ngIf="err !== ''">
+    {{ err }}
+  </div>
+  <div *ngIf="err === ''">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">userId</th>
+          <th scope="col">title</th>
+          <th scope="col">body</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let resultData of data">
+          <td>{{ resultData.id }}</td>
+          <td>{{ resultData.userId }}</td>
+          <td>{{ resultData.title }}</td>
+          <td>{{ resultData.body }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

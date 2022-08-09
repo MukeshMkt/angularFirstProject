@@ -5,11 +5,18 @@ import { RadioComponent } from './radio/radio.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { LoginAuthGuard } from './login-auth.guard';
+import { PostListComponent } from './post-list/post-list.component';
 
 const routes: Routes = [
   {
     path: '',
     component: ReactiveFormComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'post-list',
+    canActivate: [LoginAuthGuard],
+    component: PostListComponent,
     pathMatch: 'full',
   },
   {

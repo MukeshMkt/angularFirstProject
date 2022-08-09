@@ -45,7 +45,7 @@ export class ReactiveFormComponent implements OnInit {
       JSON.stringify(this.registerForm.value)
     );
     if (!!sessionStorage.getItem('loginData'))
-      this.router.navigateByUrl('/radio');
+      this.router.navigateByUrl('/post-list');
     this.reactiveFormDataFunc.emit(this.registerForm.value);
   }
 
